@@ -20,7 +20,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   // 3) Render that template using tour data from 1)
   res.status(200).render('overview', {
     title: 'All Tours',
-    tours
+    tours,
   });
 });
 
@@ -28,7 +28,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
   // 1) Get the data, for the requested tour (including reviews and guides)
   const tour = await Tour.findOne({ slug: req.params.slug }).populate({
     path: 'reviews',
-    fields: 'review rating user'
+    fields: 'review rating user',
   });
 
   if (!tour) {
@@ -39,19 +39,23 @@ exports.getTour = catchAsync(async (req, res, next) => {
   // 3) Render template using data from 1)
   res.status(200).render('tour', {
     title: `${tour.name} Tour`,
-    tour
+    tour,
   });
 });
 
 exports.getLoginForm = (req, res) => {
+  if (req.cookies.jwt) {
+    return res.redirect('back');
+  }
+
   res.status(200).render('login', {
-    title: 'Log into your account'
+    title: 'Log into your account',
   });
 };
 
 exports.getAccount = (req, res) => {
   res.status(200).render('account', {
-    title: 'Your account'
+    title: 'Your account',
   });
 };
 
@@ -60,12 +64,12 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   const bookings = await Booking.find({ user: req.user.id });
 
   // 2) Find tours with the returned IDs
-  const tourIDs = bookings.map(el => el.tour);
+  const tourIDs = bookings.map((el) => el.tour);
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
   res.status(200).render('overview', {
     title: 'My Tours',
-    tours
+    tours,
   });
 });
 
@@ -74,7 +78,7 @@ exports.getSignUpForm = (req, res) => {
     return res.redirect('back');
   }
   return res.status(200).render('signup', {
-    title: 'Sign Up'
+    title: 'Sign Up',
   });
 };
 
@@ -83,7 +87,7 @@ exports.getForgotPassword = (req, res) => {
     return res.redirect('back');
   }
   return res.status(200).render('forgot', {
-    title: 'Forgot Password'
+    title: 'Forgot Password',
   });
 };
 
@@ -92,6 +96,6 @@ exports.getResetPassword = (req, res) => {
     return res.redirect('back');
   }
   return res.status(200).render('resetpassword', {
-    title: 'Reset Password'
+    title: 'Reset Password',
   });
 };
