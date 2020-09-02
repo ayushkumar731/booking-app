@@ -73,7 +73,7 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = (req, res) => {
-  res.cookie('jwt', 'loggedout', {
+  res.cookie('jwt', 'logout', {
     expires: new Date(Date.now() + 1 * 1000),
     httpOnly: true,
   });
@@ -189,7 +189,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
       status: 'success',
-      message: 'Token sent to email!',
+      message: 'Check Your Mail!',
     });
   } catch (err) {
     user.passwordResetToken = undefined;
