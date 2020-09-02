@@ -1,4 +1,3 @@
-/* eslint-disable */
 import axios from 'axios';
 import { showAlert } from './alerts';
 
@@ -17,7 +16,7 @@ export const login = async (email, password) => {
       showAlert('success', 'Logged in successfully!');
       window.setTimeout(() => {
         location.assign('/');
-      }, 1500);
+      }, 1000);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
