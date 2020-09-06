@@ -61,96 +61,155 @@ It is a booking app where user can sign up,login,booking tours through ATM card.
 
 ## Folder Structure
 
-- config
-
-  - mongoose.js
-
-- controllers
-
-  - authController.js
-  - bookingController.js
-  - errorController.js
-  - handleFactory.js
-  - reviewController.js
-  - tourController.js
-  - userController.js
-  - viewsController.js
-
-- models
-
-  - bookingModels.js
-  - reviewModel.js
-  - tourModel.js
-  - userModel.js
-
-- public
-
-  - css
-    - style.css
-  - img
-    - tours
-    - users
-    - favicon.png
-    - isons.svg
-    - logo-green.png
-    - logo-green-round.png
-    - logo-green-small.png
-    - logo-white.png
-    - pin.png
-    - Screendhot.png
-  - js
-    - alert.js
-    - bundle.js
-    - bundle.js.map
-    - forgotSetting.js
-    - index.js
-    - login.js
-    - mapbox.js
-    - signup.js
-    - stripe.js
-    - updateSettings.js
-
-- routes
-
-  - bookingRoutes.js
-  - reviewRoutes.js
-  - tourRoutes.js
-  - userRoutes.js
-  - viewRoutes.js
-
-- utils
-
-  - apiFeatures.js
-  - appError.js
-  - catchAsync.js
-  - email.js
-
-- views
-
-  - email
-    - \_style.pug
-    - baseEmail.pug
-    - passwordReset.pug
-    - welcome.pug
-  - \_footer.pug
-  - \_header.pug
-  - \_reviewCard.pug
-  - account.pug
-  - base.pug
-  - error.pug
-  - forgot.pug
-  - login.pug
-  - overview.pug
-  - resetPassword.pug
-  - signup.pug
-  - tour.pug
-
-- .gitignore
-- app.js
-- package.json
-- package-lock.json
-- readme.md
-- server.js
+```
+├─ config
+│  └─ mongoose.js
+├─ controllers
+│  ├─ authController.js
+│  ├─ bookingController.js
+│  ├─ errorController.js
+│  ├─ handlerFactory.js
+│  ├─ reviewController.js
+│  ├─ tourController.js
+│  ├─ userController.js
+│  └─ viewsController.js
+├─ models
+│  ├─ bookingModel.js
+│  ├─ reviewModel.js
+│  ├─ tourModel.js
+│  └─ userModel.js
+├─ public
+│  ├─ css
+│  │  └─ style.css
+│  ├─ img
+│  │  ├─ tours
+│  │  │  ├─ tour-1-1.jpg
+│  │  │  ├─ tour-1-2.jpg
+│  │  │  ├─ tour-1-3.jpg
+│  │  │  ├─ tour-1-cover.jpg
+│  │  │  ├─ tour-2-1.jpg
+│  │  │  ├─ tour-2-2.jpg
+│  │  │  ├─ tour-2-3.jpg
+│  │  │  ├─ tour-2-cover.jpg
+│  │  │  ├─ tour-3-1.jpg
+│  │  │  ├─ tour-3-2.jpg
+│  │  │  ├─ tour-3-3.jpg
+│  │  │  ├─ tour-3-cover.jpg
+│  │  │  ├─ tour-4-1.jpg
+│  │  │  ├─ tour-4-2.jpg
+│  │  │  ├─ tour-4-3.jpg
+│  │  │  ├─ tour-4-cover.jpg
+│  │  │  ├─ tour-5-1.jpg
+│  │  │  ├─ tour-5-2.jpg
+│  │  │  ├─ tour-5-3.jpg
+│  │  │  ├─ tour-5-cover.jpg
+│  │  │  ├─ tour-5cdb06c8d87ca1051d90eda9-1557860998505-cover.jpeg
+│  │  │  ├─ tour-5cdb06c8d87ca1051d90eda9-1557860998703-1.jpeg
+│  │  │  ├─ tour-5cdb06c8d87ca1051d90eda9-1557860998703-2.jpeg
+│  │  │  ├─ tour-5cdb06c8d87ca1051d90eda9-1557860998703-3.jpeg
+│  │  │  ├─ tour-5f4bbed90064a24d601656ac-1598802271819-cover.jpeg
+│  │  │  ├─ tour-5f4bbed90064a24d601656ac-1598802272550-1.jpeg
+│  │  │  ├─ tour-5f4bbed90064a24d601656ac-1598802272551-2.jpeg
+│  │  │  ├─ tour-5f4bbed90064a24d601656ac-1598802272552-3.jpeg
+│  │  │  ├─ tour-6-1.jpg
+│  │  │  ├─ tour-6-2.jpg
+│  │  │  ├─ tour-6-3.jpg
+│  │  │  ├─ tour-6-cover.jpg
+│  │  │  ├─ tour-7-1.jpg
+│  │  │  ├─ tour-7-2.jpg
+│  │  │  ├─ tour-7-3.jpg
+│  │  │  ├─ tour-7-cover.jpg
+│  │  │  ├─ tour-8-1.jpg
+│  │  │  ├─ tour-8-2.jpg
+│  │  │  ├─ tour-8-3.jpg
+│  │  │  ├─ tour-8-cover.jpg
+│  │  │  ├─ tour-9-1.jpg
+│  │  │  ├─ tour-9-2.jpg
+│  │  │  ├─ tour-9-3.jpg
+│  │  │  └─ tour-9-cover.jpg
+│  │  ├─ users
+│  │  │  ├─ default.jpg
+│  │  │  ├─ user-1.jpg
+│  │  │  ├─ user-10.jpg
+│  │  │  ├─ user-11.jpg
+│  │  │  ├─ user-12.jpg
+│  │  │  ├─ user-13.jpg
+│  │  │  ├─ user-14.jpg
+│  │  │  ├─ user-15.jpg
+│  │  │  ├─ user-16.jpg
+│  │  │  ├─ user-17.jpg
+│  │  │  ├─ user-18.jpg
+│  │  │  ├─ user-19.jpg
+│  │  │  ├─ user-2.jpg
+│  │  │  ├─ user-20.jpg
+│  │  │  ├─ user-3.jpg
+│  │  │  ├─ user-4.jpg
+│  │  │  ├─ user-5.jpg
+│  │  │  ├─ user-5c8a1f292f8fb814b56fa184-1557847261269.jpeg
+│  │  │  ├─ user-5c8a1f292f8fb814b56fa184-1557847910809.jpeg
+│  │  │  ├─ user-5c8a21f22f8fb814b56fa18a-1557852619509.jpeg
+│  │  │  ├─ user-5c8a21f22f8fb814b56fa18a-1557855123565.jpeg
+│  │  │  ├─ user-5c8a21f22f8fb814b56fa18a-1557855245743.jpeg
+│  │  │  ├─ user-5cdae0421c60052311ceec77-1557848268253.jpeg
+│  │  │  ├─ user-6.jpg
+│  │  │  ├─ user-7.jpg
+│  │  │  ├─ user-8.jpg
+│  │  │  └─ user-9.jpg
+│  │  ├─ favicon.png
+│  │  ├─ icons.svg
+│  │  ├─ intro.png
+│  │  ├─ logo-green-round.png
+│  │  ├─ logo-green-small.png
+│  │  ├─ logo-green.png
+│  │  ├─ logo-white.png
+│  │  └─ pin.png
+│  └─ js
+│     ├─ alerts.js
+│     ├─ bundle.js
+│     ├─ bundle.js.map
+│     ├─ forgotSetting.js
+│     ├─ index.js
+│     ├─ login.js
+│     ├─ mapbox.js
+│     ├─ signup.js
+│     ├─ stripe.js
+│     └─ updateSettings.js
+├─ routes
+│  ├─ bookingRoutes.js
+│  ├─ reviewRoutes.js
+│  ├─ tourRoutes.js
+│  ├─ userRoutes.js
+│  └─ viewRoutes.js
+├─ utils
+│  ├─ apiFeatures.js
+│  ├─ appError.js
+│  ├─ catchAsync.js
+│  └─ email.js
+├─ views
+│  ├─ email
+│  │  ├─ _style.pug
+│  │  ├─ baseEmail.pug
+│  │  ├─ passwordReset.pug
+│  │  └─ welcome.pug
+│  ├─ _footer.pug
+│  ├─ _header.pug
+│  ├─ _reviewCard.pug
+│  ├─ account.pug
+│  ├─ base.pug
+│  ├─ error.pug
+│  ├─ forgot.pug
+│  ├─ login.pug
+│  ├─ overview.pug
+│  ├─ resetpassword.pug
+│  ├─ signup.pug
+│  └─ tour.pug
+├─ .gitignore
+├─ app.js
+├─ package-lock.json
+├─ package.json
+├─ readme.md
+└─ server.js
+```
 
 ## Quick Start
 
